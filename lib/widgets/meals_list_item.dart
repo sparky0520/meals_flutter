@@ -31,12 +31,16 @@ class MealsListItem extends StatelessWidget {
         splashColor: Theme.of(context).colorScheme.primary,
         child: Stack(
           children: [
-            FadeInImage(
-              fit: BoxFit.cover,
-              height: 250,
-              width: double.infinity,
-              placeholder: MemoryImage(kTransparentImage),
-              image: NetworkImage(meal.imageUrl),
+            Hero(
+              // animate image widget across screens
+              tag: meal.id,
+              child: FadeInImage(
+                fit: BoxFit.cover,
+                height: 250,
+                width: double.infinity,
+                placeholder: MemoryImage(kTransparentImage),
+                image: NetworkImage(meal.imageUrl),
+              ),
             ),
             Positioned(
               left: 0,
